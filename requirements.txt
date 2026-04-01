@@ -1,0 +1,6 @@
+crewai
+pypdf
+streamlit
+openai
+langchain==0.1.20
+langchain-community==0.0.38
