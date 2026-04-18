@@ -1,63 +1,65 @@
-# 🤖 Job Application Bot
+# 🤖 Multi-Agent Job Application Bot
 
-An AI-powered job application assistant built with CrewAI and Streamlit.
+A 3-agent AI system built with CrewAI that automates the job application process — Resume Analyzer, Job Matcher, and Cover Letter Generator working together autonomously.
 
-## What It Does
+🔴 **Live Demo**: [huggingface.co/spaces/nitz0219/job-application-bot](https://nitz0219-job-application-bot-v1.hf.space)
 
-Upload your Job Description and Resume → Get instant analysis and a personalized cover letter.
+---
 
-## Features
+## 🧠 What It Does
 
-- 📄 Analyzes Job Description and extracts top requirements
-- 👤 Analyzes your Resume and extracts key skills
-- 🎯 Matches your profile against job requirements
-- ✉️ Generates a personalized cover letter
-- 📥 Download your cover letter instantly
+Input a job description → 3 specialized AI agents collaborate → Get a tailored cover letter + resume match analysis + application strategy.
 
-## How To Use
+---
 
-1. Enter your OpenAI API key
-2. Upload Job Description PDF
-3. Upload Resume PDF
-4. Click Analyze & Generate Cover Letter
-5. View results in tabs
-6. Download your cover letter
+## 🏗️ Multi-Agent Architecture
 
-## Built With
-
-- CrewAI - Multi agent framework
-- Streamlit - UI framework
-- OpenAI - LLM engine
-- PyPDF - PDF reading
-
-## Project Structure
 ```
-job-application-bot/
-├── app.py              ← CrewAI agents and logic
-├── streamlit_app.py    ← Streamlit UI
-├── requirements.txt    ← Python dependencies
-└── README.md           ← Project documentation
-```
-
-## Author
-
-Nitesh Nankani - AI/ML Engineer
+Job Description Input
+        ↓
+┌─────────────────────────────────┐
+│         CrewAI Orchestrator     │
+└─────────────────────────────────┘
+        ↓
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│   Agent 1    │  │   Agent 2    │  │   Agent 3    │
+│   Resume     │→ │    Job       │→ │   Cover      │
+│   Analyzer   │  │   Matcher    │  │   Letter     │
+│              │  │              │  │   Generator  │
+└──────────────┘  └──────────────┘  └──────────────┘
+        ↓
+  Final Output:
+  - Match Score
+  - Gap Analysis  
+  - Tailored Cover Letter
+  - Application Strategy
 ```
 
 ---
 
-Also create `runtime.txt` with just this inside:
-```
-3.12
-```
+## ⚙️ Tech Stack
 
-This tells Streamlit Cloud to use Python 3.12. 🎯
+| Layer | Technology |
+|-------|-----------|
+| Agent Framework | CrewAI |
+| LLM Orchestration | LangChain + LangGraph |
+| LLM | OpenAI GPT-4o |
+| Backend | FastAPI |
+| Database | SQLite |
+| Deployment | Docker + Hugging Face Spaces |
 
-Your folder should now have:
-```
-job-application-bot/
-├── app.py
-├── streamlit_app.py
-├── requirements.txt
-├── runtime.txt
-└── README.md
+---
+
+## 🚀 System Design Features
+
+- **Multi-Agent Orchestration** — agents work sequentially, passing context
+- **LangGraph Workflow** — structured agent communication
+- **Database Integration** — saves every application for history
+- **Docker** — fully containerized deployment
+
+---
+
+## 👨‍💻 Author
+
+**Nitesh Nankani** — AI/ML Engineer  
+[HuggingFace](https://huggingface.co/nitz0219) | [GitHub](https://github.com/niteshnankani-svg) | [LinkedIn](https://linkedin.com/in/niteshnankani)
